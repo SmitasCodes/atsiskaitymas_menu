@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(41, 36, 36);
+    height: 100%;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.active{
+    color: rgb(248, 75, 12)
+}
+
+/* Header and navigation */
+
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+nav {
+    position: fixed;
+    overflow: hidden;
+    margin: 0 auto;
+    transform: translate(100%, -50%);
+    top: 50%;
+    left: 50%;
+    right: 0;
+}
+
+nav {
+    max-height: 0;
+}
+
+/* Link styling */
+nav ul li{
+    text-align: center;
+    list-style-type: none;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: rgb(255, 246, 246);
+    font-weight:100;
+    padding: 26px;
+    font-size: 25px;
+}
+
+nav ul li a:hover{
+    color: rgb(248, 75, 12);
+}
+
+/* Hamburger menu icon */
+.hamb{
+    cursor: pointer;
+    float: right;
+    padding: 25px;
+}
+
+.hamb-line{
+    background-color: rgb(255, 246, 246);
+    display: block;
+    height: 3px;
+    position: relative;
+    width: 28px;
+}
+
+.hamb-line::before,
+.hamb-line::after{
+    background: rgb(255, 246, 246);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.hamb-line::before{
+    top: 7px;
+    width: 20px;
+}
+
+.hamb-line::after{
+    top: -7px;
+}
+
+.side-menu {
+    display: none;
+}
+
+/* Toggle menu icon */
+
+.side-menu:checked ~ nav{
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    transition: transform .5s ease-out;
+}
+
+.side-menu:checked ~ .hamb .hamb-line{
+    background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before{
+    transition: transform .5s ease-out;
+    transform: rotate(-405deg);
+    top: 0;
+    width: 28px;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after{
+    transform: rotate(405deg);
+    transition: transform .5s ease-out;
+    top: 0;
+    width: 28px;
+}
